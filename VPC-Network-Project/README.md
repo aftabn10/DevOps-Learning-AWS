@@ -11,6 +11,23 @@ The setup follows a standard two-tier architecture pattern where:
 
 ---
 
+## Summary of Configuration
+
+| Component            | Configuration Details                                                                 |
+|----------------------|----------------------------------------------------------------------------------------|
+| **VPC**              | Custom VPC created with CIDR block `10.0.0.0/16`                                      |
+| **Public Subnet**    | `10.0.1.0/24` — Allows public internet access via IGW                                 |
+| **Private Subnet**   | `10.0.2.0/24` — Internal network, outbound access via NAT Gateway                     |
+| **Internet Gateway** | Attached to VPC for external connectivity                                             |
+| **NAT Gateway**      | Deployed in Public Subnet with Elastic IP for Private Subnet outbound access           |
+| **Route Tables**     | Public: IGW route `0.0.0.0/0`; Private: NAT route `0.0.0.0/0`                         |
+| **EC2 Instance (Public)** | Bastion Host with public IP — SSH access allowed from trusted IPs only          |
+| **EC2 Instance (Private)** | Internal instance with no public IP — accessible only via Bastion Host         |
+| **Availability Zone**| Both subnets created in same AZ for simplicity                                        |
+| **Security Groups**  | Configured to restrict inbound access and allow controlled SSH between instances       |
+
+---
+
 ## Steps and Configuration Details
 
 ### 1. Create the VPC
