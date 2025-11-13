@@ -108,4 +108,24 @@ Two separate route tables were configured:
 **Screenshot:**
 ![EC2 Instances](./images/ec2-instances.png)
 
+### 7. CloudWatch Monitoring & Logging
+
+- ** NOT DEPLOYED **
+
+
+---
+
+## What I Learned
+
+- Gained a clearer understanding of how **VPCs** define isolated network environments within AWS.  
+- Learned how to design and allocate **CIDR blocks** for efficient subnet planning.  
+- Practiced creating both **public and private subnets** and assigning the correct routing for each.  
+- Configured and attached an **Internet Gateway (IGW)** to enable public internet access.  
+- Deployed and tested a **NAT Gateway (NGW)** to allow private resources secure outbound connectivity.  
+- Set up and managed **route tables** to control traffic flow between subnets and external networks.  
+- Launched **EC2 instances** in both subnets, understanding how IP addressing and connectivity differ between them.  
+- Implemented a **bastion host** to securely access private instances without exposing them publicly.  
+- Strengthened awareness of **security best practices** using Security Groups and controlled SSH access.  
+- Developed a more practical understanding of how AWS networking components integrate to form scalable, secure architectures.
+
 
