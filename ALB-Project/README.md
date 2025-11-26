@@ -2,11 +2,27 @@
 
 # Introduction
 
-A common DevOps pattern: multiple EC2 instances behind an ALB. This teaches load balancing, health checks, and proper security group isolation.
+This project demonstrates the deployment of an Application Load Balancer (ALB) in AWS to distribute traffic across multiple EC2 instances. The implementation highlights load balancing, health checks, and proper security group isolation to ensure high availability and secure access.
+
+The setup follows a standard high‑availability pattern where:
+
+- The ALB acts as the single entry point for all incoming traffic.
+
+- Two EC2 instances are deployed across different Availability Zones to provide redundancy.
+
+- Security Groups enforce isolation so that EC2 instances are only accessible through the ALB.
+
+- Health checks ensure that traffic is routed only to healthy targets.
+
+---
+
+## Summary of Configuration
+
+
 
 ## Step by Step
 
-**Task 1: Two EC2 Instances**
+## Task 1: Two EC2 Instances
 
 - Launch **two EC2 instances** in the same VPC.
     
@@ -40,7 +56,7 @@ echo "<h1>Welcome to My EC2 Instance - $(hostname -f)</h1>" > /var/www/html/inde
 
 ---
 
-**Task 2: Set Up the ALB**
+## Task 2: Set Up the ALB
 
 - Create an **Application Load Balancer** in **two public subnets**.
     
@@ -69,7 +85,7 @@ echo "<h1>Welcome to My EC2 Instance - $(hostname -f)</h1>" > /var/www/html/inde
 
 ---
 
-**Task 3: Security Groups**
+## Task 3: Security Groups
 
 - **ALB Security Group**: allow inbound HTTP (port 80) from anywhere.
     
@@ -85,7 +101,8 @@ echo "<h1>Welcome to My EC2 Instance - $(hostname -f)</h1>" > /var/www/html/inde
 ![EC2 SG](./images/ec2-sg.png)
 
 ---
-### Task 4: Testing
+
+## Task 4: Testing
 
 - Visit the **ALB DNS name** in your browser.
     
@@ -103,3 +120,17 @@ echo "<h1>Welcome to My EC2 Instance - $(hostname -f)</h1>" > /var/www/html/inde
 
 📸 _Screenshot: Target group health status (healthy)_
 ![Health Status](./images/healthstatus.png)
+
+## What I Learned
+
+- Understood how an Application Load Balancer provides high availability and redundancy.
+
+- Learned how to configure Target Groups and health checks to ensure traffic only flows to healthy instances.
+
+- Practiced security group isolation, ensuring EC2 instances are protected and only accessible via the ALB.
+
+- Observed how load balancing alternates traffic between instances, demonstrating distribution in action.
+
+- Strengthened awareness of resilient architectures by deploying resources across multiple Availability Zones.
+
+- Built confidence in designing scalable, fault‑tolerant web applications using AWS core services.
