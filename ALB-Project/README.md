@@ -1,4 +1,4 @@
-# AWS Networking Assignment:
+# AWS Networking Assignment: Application Load Balancer
 
 # Introduction
 
